@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class ConnectionButtons : MonoBehaviour
 {
+    [SerializeField] GameObject vrPrefab;
     public void StartHost()
     {
         NetworkManager.Singleton.StartHost();

@@ -11,7 +11,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     private Controls controls;
     public event Action<bool> PrimaryFireEvent;
     public event Action<Vector2> MoveEvent;
-    public event Action<Vector2> moveMobileEvent;
+    //public event Action<Vector2> moveMobileEvent;
 
     private void OnEnable()
     {
@@ -28,7 +28,7 @@ public class InputReader : ScriptableObject, IPlayerActions
     {
         //Things we want to do when the player moves
         MoveEvent?.Invoke(context.ReadValue<Vector2>());
-        moveMobileEvent?.Invoke(context.ReadValue<Vector2>());
+        //moveMobileEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
     public void OnPrimaryFire(InputAction.CallbackContext context)

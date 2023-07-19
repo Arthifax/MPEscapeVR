@@ -212,6 +212,8 @@ GameObject:
   - component: {fileID: 1805445572238285649}
   - component: {fileID: 6542665010218458397}
   - component: {fileID: 4854640854576835254}
+  - component: {fileID: 5191734408533942979}
+  - component: {fileID: 1036822787081237812}
   m_Layer: 0
   m_Name: Player_Mobile
   m_TagString: Untagged
@@ -234,7 +236,7 @@ Transform:
   - {fileID: 2353910670904139418}
   - {fileID: 3939147169835524047}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6542665010218458397
 MonoBehaviour:
@@ -269,8 +271,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 0
+  SyncPositionY: 0
+  SyncPositionZ: 1
   SyncRotAngleX: 0
   SyncRotAngleY: 0
   SyncRotAngleZ: 0
@@ -286,6 +288,50 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!54 &5191734408533942979
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384587696783862584}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!114 &1036822787081237812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7384587696783862584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0bc011ba290fd148b1c0814342f176f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: 1f480567252dd4548be0a7281a02f16d, type: 2}
+  bodyTransform: {fileID: 2353910670904139418}
+  rb: {fileID: 5191734408533942979}
+  movementSpeed: 4
+  turningRate: 30
 --- !u!1 &7787223964458734926
 GameObject:
   m_ObjectHideFlags: 0

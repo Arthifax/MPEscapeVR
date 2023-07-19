@@ -15,12 +15,12 @@ public class TestScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputReader.moveMobileEvent += HandleMove;
+        inputReader.MoveEvent += HandleMove;
     }
 
     private void OnDestroy()
     {
-        inputReader.moveMobileEvent -= HandleMove;
+        inputReader.MoveEvent -= HandleMove;
     }
 
     private void HandleMove(Vector2 movement)
