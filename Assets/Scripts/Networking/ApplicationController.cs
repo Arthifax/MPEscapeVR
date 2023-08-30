@@ -12,6 +12,7 @@ public class ApplicationController : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
+        //Are we a dedicated server or not. DDS is null.
         await LaunchInMode(SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null);
     }
 

@@ -12,13 +12,16 @@ public class HostSingleton : MonoBehaviour
     {
         get
         {
+            //If it exists, give it
             if (instance != null)
             {
                 return instance;
             }
 
+            //If we're trying to get the singleton and it doesn't exist we find one in the scene
             instance = FindObjectOfType<HostSingleton>();
 
+            //If that failed, return null and error
             if (instance == null)
             {
                 Debug.LogError("No HostSingleton in the scene!");
@@ -36,6 +39,7 @@ public class HostSingleton : MonoBehaviour
 
     public void CreateHost()
     {
+        //Create a new instance of the Host Game Manager
         gameManager = new HostGameManager();
     }
 }
