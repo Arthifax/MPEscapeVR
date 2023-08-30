@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class ApplicationController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private ClientSingleton clientPrefab;
+    [SerializeField] private HostSingleton hostPrefab;
+
+    private async void Start()
     {
         DontDestroyOnLoad(gameObject);
 
-        LaunchInMode(SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null);
+        await LaunchInMode(SystemInfo.graphicsDeviceType == UnityEngine.Rendering.GraphicsDeviceType.Null);
     }
 
-    private void LaunchInMode(bool isDedicatedServer)
+    private async Task LaunchInMode(bool isDedicatedServer)
     {
         if(isDedicatedServer)
         {
@@ -20,7 +23,16 @@ public class ApplicationController : MonoBehaviour
         }
         else
         {
+            ClientSingleton clientSingleton = Instantiate(clientPrefab);
+            bool authenticated = await clientSingleton.CreateClient();
 
+            HostSingleton hostSingleton = Instantiate(hostPrefab);
+            hostSingleton.CreateHost();
+
+            if(authenticated)
+            {
+                clientSingleton.GameManager.GoToMenu();
+            }
         }
     }
 }
