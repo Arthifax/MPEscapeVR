@@ -63,14 +63,14 @@ public static class AuthenticationHandler
                     break;
                 }
             }
-            catch(AuthenticationException ex)
+            catch(AuthenticationException authException)
             {
-                Debug.LogError(ex);
+                Debug.LogError(authException);
                 AuthState = AuthState.Error;
             }
-            catch(RequestFailedException exception)
+            catch(RequestFailedException reqException)
             {
-                Debug.LogError(exception);
+                Debug.LogError(reqException);
                 AuthState = AuthState.Error;
             }
 
